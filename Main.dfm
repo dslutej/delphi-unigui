@@ -12,9 +12,9 @@ object MainForm: TMainForm
     Left = 0
     Top = 0
     Width = 929
-    Height = 417
+    Height = 265
     Hint = ''
-    DataSource = UniServerModule.UniDataSource1
+    DataSource = UniMainModule.UniDataSource1
     LoadMask.Message = 'Loading data...'
     Align = alTop
     Anchors = [akLeft, akTop, akRight]

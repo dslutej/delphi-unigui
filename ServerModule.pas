@@ -10,8 +10,6 @@ type
   TUniServerModule = class(TUniGUIServerModule)
     UniConnection1: TUniConnection;
     PostgreSQLUniProvider1: TPostgreSQLUniProvider;
-    UniTable1: TUniTable;
-    UniDataSource1: TUniDataSource;
   private
     { Private declarations }
   protected

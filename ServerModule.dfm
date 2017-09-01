@@ -32,16 +32,4 @@ object UniServerModule: TUniServerModule
     Left = 128
     Top = 24
   end
-  object UniTable1: TUniTable
-    TableName = 'actor'
-    Connection = UniConnection1
-    Active = True
-    Left = 145
-    Top = 160
-  end
-  object UniDataSource1: TUniDataSource
-    DataSet = UniTable1
-    Left = 152
-    Top = 232
-  end
 end

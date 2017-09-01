@@ -3,10 +3,12 @@ unit MainModule;
 interface
 
 uses
-  uniGUIMainModule, SysUtils, Classes;
+  uniGUIMainModule, SysUtils, Classes, Data.DB, DBAccess, Uni, MemDS;
 
 type
   TUniMainModule = class(TUniGUIMainModule)
+    UniDataSource1: TUniDataSource;
+    UniTable1: TUniTable;
   private
     { Private declarations }
   public
