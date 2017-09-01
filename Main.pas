@@ -6,11 +6,14 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIRegClasses, uniGUIForm, uniGUIBaseClasses, uniBasicGrid,
-  uniDBGrid;
+  uniDBGrid, uniButton, uniSyntaxEditorBase, uniSyntaxEditorEx;
 
 type
   TMainForm = class(TUniForm)
     UniDBGrid1: TUniDBGrid;
+    UniSyntaxEditEx1: TUniSyntaxEditEx;
+    UniButton1: TUniButton;
+    procedure UniButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,6 +32,15 @@ uses
 function MainForm: TMainForm;
 begin
   Result := TMainForm(UniMainModule.GetFormInstance(TMainForm));
+end;
+
+procedure TMainForm.UniButton1Click(Sender: TObject);
+begin
+  UniMainModule.UniQuery1.Close;
+  UniDBGrid1.BeginUpdate;
+  UniMainModule.UniQuery1.SQL.Assign(UniSyntaxEditEx1.Lines);
+  UniDBGrid1.EndUpdate;
+  UniMainModule.UniQuery1.Open;
 end;
 
 initialization

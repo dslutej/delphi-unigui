@@ -8,7 +8,7 @@ uses
 type
   TUniMainModule = class(TUniGUIMainModule)
     UniDataSource1: TUniDataSource;
-    UniTable1: TUniTable;
+    UniQuery1: TUniQuery;
   private
     { Private declarations }
   public
