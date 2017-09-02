@@ -7,12 +7,24 @@ object UniMainModule: TUniMainModule
   object UniDataSource1: TUniDataSource
     DataSet = UniQuery1
     Left = 128
-    Top = 30
+    Top = 24
   end
   object UniQuery1: TUniQuery
     Connection = UniServerModule.UniConnection1
+    SQL.Strings = (
+      'select * from film '
+      'where lower(title) like lower(:title_search)'
+      'order by title;')
     ReadOnly = True
-    Left = 40
+    Active = True
+    Left = 48
     Top = 24
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'title_search'
+        ParamType = ptInput
+        Value = 'a'
+      end>
   end
 end
