@@ -7,16 +7,20 @@ uses
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIRegClasses, uniGUIForm, uniGUIBaseClasses, uniBasicGrid,
   uniDBGrid, uniButton, uniSyntaxEditorBase, uniSyntaxEditorEx, uniSplitter,
-  uniEdit, uniPanel, uniScreenMask;
+  uniEdit, uniPanel, uniScreenMask, uniMemo, uniDBMemo, uniLabel;
 
 type
   TMainForm = class(TUniForm)
     UniDBGrid1: TUniDBGrid;
-    UniSyntaxEditEx1: TUniSyntaxEditEx;
     UniSplitter1: TUniSplitter;
     UniPanel1: TUniPanel;
     edtFilter: TUniEdit;
-    procedure UniButton1Click(Sender: TObject);
+    UniPanel2: TUniPanel;
+    UniPanel3: TUniPanel;
+    UniDBMemo1: TUniDBMemo;
+    UniDBGrid2: TUniDBGrid;
+    UniDBMemo2: TUniDBMemo;
+    UniLabel1: TUniLabel;
     procedure edtFilterKeyPress(Sender: TObject; var Key: Char);
     procedure UniFormShow(Sender: TObject);
   private
@@ -53,16 +57,8 @@ begin
     UniDBGrid1.BeginUpdate;
     UniMainModule.UniQuery1.Close;
     UniMainModule.UniQuery1.ParamByName('title_search').AsString := '%' + filter + '%';
-    UniSyntaxEditEx1.Lines.Assign(UniMainModule.UniQuery1.SQL);
     UniMainModule.UniQuery1.Open;
     UniDBGrid1.EndUpdate;
-end;
-
-procedure TMainForm.UniButton1Click(Sender: TObject);
-begin
-  UniMainModule.UniQuery1.Close;
-  UniMainModule.UniQuery1.SQL.Assign(UniSyntaxEditEx1.Lines);
-  UniMainModule.UniQuery1.Open;
 end;
 
 procedure TMainForm.UniFormShow(Sender: TObject);

@@ -9,6 +9,13 @@ type
   TUniMainModule = class(TUniGUIMainModule)
     UniDataSource1: TUniDataSource;
     UniQuery1: TUniQuery;
+    UniDataSource2: TUniDataSource;
+    UniQuery2: TUniQuery;
+    UniQuery2first_name: TStringField;
+    UniQuery2last_name: TStringField;
+    UniQuery2Name: TStringField;
+    procedure UniQuery2NameGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
   private
     { Private declarations }
   public
@@ -27,6 +34,12 @@ uses
 function UniMainModule: TUniMainModule;
 begin
   Result := TUniMainModule(UniApplication.UniMainModule)
+end;
+
+procedure TUniMainModule.UniQuery2NameGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  Text := UniQuery2first_name.AsString + ' ' + UniQuery2last_name.AsString;
 end;
 
 initialization

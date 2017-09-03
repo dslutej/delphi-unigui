@@ -15,8 +15,6 @@ object UniMainModule: TUniMainModule
       'select * from film '
       'where lower(title) like lower(:title_search)'
       'order by title;')
-    ReadOnly = True
-    Active = True
     Left = 48
     Top = 24
     ParamData = <
@@ -26,5 +24,48 @@ object UniMainModule: TUniMainModule
         ParamType = ptInput
         Value = 'a'
       end>
+  end
+  object UniDataSource2: TUniDataSource
+    DataSet = UniQuery2
+    Left = 136
+    Top = 104
+  end
+  object UniQuery2: TUniQuery
+    Connection = UniServerModule.UniConnection1
+    SQL.Strings = (
+      '-- This is a comment... '
+      ''
+      'select actor.first_name, actor.last_name from actor'
+      'inner join film_actor '
+      'on actor.actor_id=film_actor.actor_id  '
+      'order by first_name;')
+    MasterSource = UniDataSource1
+    MasterFields = 'film_id'
+    DetailFields = 'film_id'
+    Active = True
+    Left = 48
+    Top = 104
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'film_id'
+        Value = nil
+      end>
+    object UniQuery2first_name: TStringField
+      FieldName = 'first_name'
+      Required = True
+      Size = 45
+    end
+    object UniQuery2last_name: TStringField
+      FieldName = 'last_name'
+      Required = True
+      Size = 45
+    end
+    object UniQuery2Name: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Name'
+      OnGetText = UniQuery2NameGetText
+      Calculated = True
+    end
   end
 end

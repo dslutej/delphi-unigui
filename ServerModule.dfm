@@ -29,7 +29,7 @@ object UniServerModule: TUniServerModule
     EncryptedPassword = '8FFF90FF8CFF8BFF98FF8DFF9AFF8CFF'
   end
   object PostgreSQLUniProvider1: TPostgreSQLUniProvider
-    Left = 264
-    Top = 152
+    Left = 216
+    Top = 24
   end
 end
