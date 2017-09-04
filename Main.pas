@@ -22,7 +22,7 @@ type
     UniDBMemo2: TUniDBMemo;
     UniLabel1: TUniLabel;
     procedure edtFilterKeyPress(Sender: TObject; var Key: Char);
-    procedure UniFormShow(Sender: TObject);
+    procedure UniFormAfterShow(Sender: TObject);
   private
     procedure ExecuteFilmQuery(const filter: string);
   public
@@ -61,7 +61,7 @@ begin
     UniDBGrid1.EndUpdate;
 end;
 
-procedure TMainForm.UniFormShow(Sender: TObject);
+procedure TMainForm.UniFormAfterShow(Sender: TObject);
 begin
   ExecuteFilmQuery('');
 end;

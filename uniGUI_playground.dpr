@@ -4,7 +4,8 @@ uses
   Forms,
   ServerModule in 'ServerModule.pas' {UniServerModule: TUniGUIServerModule},
   MainModule in 'MainModule.pas' {UniMainModule: TUniGUIMainModule},
-  Main in 'Main.pas' {MainForm: TUniForm};
+  Main in 'Main.pas' {MainForm: TUniForm},
+  frmLogin in 'src\frmLogin.pas' {UniLoginForm1: TUniLoginForm};
 
 {$R *.res}
 

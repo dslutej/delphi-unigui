@@ -3,7 +3,8 @@ unit MainModule;
 interface
 
 uses
-  uniGUIMainModule, SysUtils, Classes, Data.DB, DBAccess, Uni, MemDS;
+  uniGUIMainModule, SysUtils, Classes, Data.DB, DBAccess, Uni, MemDS,
+  UniProvider, PostgreSQLUniProvider;
 
 type
   TUniMainModule = class(TUniGUIMainModule)
@@ -14,6 +15,8 @@ type
     UniQuery2first_name: TStringField;
     UniQuery2last_name: TStringField;
     UniQuery2Name: TStringField;
+    UniConnection1: TUniConnection;
+    PostgreSQLUniProvider1: TPostgreSQLUniProvider;
     procedure UniQuery2NameGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
   private

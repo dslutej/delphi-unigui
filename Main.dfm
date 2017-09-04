@@ -4,9 +4,9 @@ object MainForm: TMainForm
   ClientHeight = 695
   ClientWidth = 797
   Caption = 'MainForm'
-  OnShow = UniFormShow
   OldCreateOrder = False
   MonitoredKeys.Keys = <>
+  OnAfterShow = UniFormAfterShow
   PixelsPerInch = 96
   TextHeight = 13
   object UniSplitter1: TUniSplitter
@@ -19,8 +19,6 @@ object MainForm: TMainForm
     Align = alTop
     ParentColor = False
     Color = clBtnFace
-    ExplicitTop = 43
-    ExplicitWidth = 1126
   end
   object UniPanel1: TUniPanel
     Left = 0
@@ -49,9 +47,6 @@ object MainForm: TMainForm
       ScreenMask.Target = edtFilter
       FieldLabel = 'Filter'
       OnKeyPress = edtFilterKeyPress
-      ExplicitLeft = 0
-      ExplicitTop = 3
-      ExplicitHeight = 22
     end
   end
   object UniPanel2: TUniPanel
@@ -64,10 +59,6 @@ object MainForm: TMainForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 2
     Caption = 'UniPanel2'
-    ExplicitLeft = 236
-    ExplicitTop = 24
-    ExplicitWidth = 256
-    ExplicitHeight = 128
     object UniDBGrid1: TUniDBGrid
       Left = 1
       Top = 1
@@ -131,8 +122,6 @@ object MainForm: TMainForm
       Anchors = [akTop, akRight, akBottom]
       TabOrder = 2
       Caption = 'UniPanel3'
-      ExplicitLeft = 473
-      ExplicitTop = 0
       object UniDBMemo1: TUniDBMemo
         Left = 1
         Top = 1
@@ -144,8 +133,6 @@ object MainForm: TMainForm
         Align = alTop
         Anchors = [akLeft, akTop, akRight]
         TabOrder = 1
-        ExplicitLeft = 6
-        ExplicitTop = -28
       end
       object UniDBGrid2: TUniDBGrid
         Left = 1
@@ -179,8 +166,6 @@ object MainForm: TMainForm
         Align = alTop
         Anchors = [akLeft, akTop, akRight]
         TabOrder = 3
-        ExplicitLeft = 2
-        ExplicitTop = 9
       end
       object UniLabel1: TUniLabel
         Left = 1
@@ -192,8 +177,6 @@ object MainForm: TMainForm
         Align = alTop
         Anchors = [akLeft, akTop, akRight]
         TabOrder = 4
-        ExplicitLeft = 3
-        ExplicitWidth = 46
       end
     end
   end

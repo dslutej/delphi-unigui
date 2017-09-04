@@ -17,19 +17,4 @@ object UniServerModule: TUniServerModule
   ConnectionFailureRecovery.RetryMessage = 'Retrying...'
   Height = 411
   Width = 546
-  object UniConnection1: TUniConnection
-    ProviderName = 'PostgreSQL'
-    Port = 5432
-    Database = 'dvdrentals'
-    Username = 'postgres'
-    Server = 'localhost'
-    Connected = True
-    Left = 32
-    Top = 24
-    EncryptedPassword = '8FFF90FF8CFF8BFF98FF8DFF9AFF8CFF'
-  end
-  object PostgreSQLUniProvider1: TPostgreSQLUniProvider
-    Left = 216
-    Top = 24
-  end
 end

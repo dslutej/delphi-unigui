@@ -7,16 +7,16 @@ object UniMainModule: TUniMainModule
   object UniDataSource1: TUniDataSource
     DataSet = UniQuery1
     Left = 128
-    Top = 24
+    Top = 64
   end
   object UniQuery1: TUniQuery
-    Connection = UniServerModule.UniConnection1
+    Connection = UniConnection1
     SQL.Strings = (
       'select * from film '
       'where lower(title) like lower(:title_search)'
       'order by title;')
-    Left = 48
-    Top = 24
+    Left = 64
+    Top = 64
     ParamData = <
       item
         DataType = ftString
@@ -31,7 +31,7 @@ object UniMainModule: TUniMainModule
     Top = 104
   end
   object UniQuery2: TUniQuery
-    Connection = UniServerModule.UniConnection1
+    Connection = UniConnection1
     SQL.Strings = (
       '-- This is a comment... '
       ''
@@ -42,13 +42,13 @@ object UniMainModule: TUniMainModule
     MasterSource = UniDataSource1
     MasterFields = 'film_id'
     DetailFields = 'film_id'
-    Active = True
-    Left = 48
-    Top = 104
+    Left = 56
+    Top = 136
     ParamData = <
       item
         DataType = ftUnknown
         Name = 'film_id'
+        ParamType = ptInput
         Value = nil
       end>
     object UniQuery2first_name: TStringField
@@ -67,5 +67,20 @@ object UniMainModule: TUniMainModule
       OnGetText = UniQuery2NameGetText
       Calculated = True
     end
+  end
+  object UniConnection1: TUniConnection
+    ProviderName = 'PostgreSQL'
+    Port = 5432
+    Database = 'dvdrentals'
+    Pooling = True
+    Username = 'postgres'
+    Server = 'localhost'
+    Left = 16
+    Top = 16
+    EncryptedPassword = '8FFF90FF8CFF8BFF98FF8DFF9AFF8CFF'
+  end
+  object PostgreSQLUniProvider1: TPostgreSQLUniProvider
+    Left = 264
+    Top = 8
   end
 end
