@@ -6,178 +6,77 @@ object MainForm: TMainForm
   Caption = 'MainForm'
   OldCreateOrder = False
   MonitoredKeys.Keys = <>
-  OnAfterShow = UniFormAfterShow
   PixelsPerInch = 96
   TextHeight = 13
-  object UniSplitter1: TUniSplitter
-    Left = 0
-    Top = 25
-    Width = 797
-    Height = 6
-    Cursor = crVSplit
-    Hint = ''
-    Align = alTop
-    ParentColor = False
-    Color = clBtnFace
-  end
-  object UniPanel1: TUniPanel
+  object UniPageControl1: TUniPageControl
     Left = 0
     Top = 0
     Width = 797
-    Height = 25
+    Height = 695
     Hint = ''
-    Align = alTop
-    Anchors = [akLeft, akTop, akRight]
-    TabOrder = 1
-    Caption = ''
-    object edtFilter: TUniEdit
-      AlignWithMargins = True
-      Left = 4
-      Top = 4
-      Width = 230
-      Height = 17
-      Hint = ''
-      Text = ''
-      Align = alLeft
-      Anchors = [akLeft, akTop, akBottom]
-      TabOrder = 1
-      CheckChangeDelay = 100
-      ScreenMask.WaitData = True
-      ScreenMask.Message = 'Executing'
-      ScreenMask.Target = edtFilter
-      FieldLabel = 'Filter'
-      OnKeyPress = edtFilterKeyPress
-    end
-  end
-  object UniPanel2: TUniPanel
-    Left = 0
-    Top = 31
-    Width = 797
-    Height = 664
-    Hint = ''
+    ActivePage = UniTabSheet1
+    DeferredRender = True
     Align = alClient
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabOrder = 2
-    Caption = 'UniPanel2'
-    object UniDBGrid1: TUniDBGrid
-      Left = 1
-      Top = 1
-      Width = 471
-      Height = 662
+    TabOrder = 0
+    ExplicitLeft = 24
+    ExplicitTop = 46
+    ExplicitWidth = 665
+    ExplicitHeight = 579
+    object UniTabSheet1: TUniTabSheet
       Hint = ''
-      DataSource = UniMainModule.UniDataSource1
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgAutoRefreshRow]
-      WebOptions.Paged = False
-      WebOptions.FetchAll = True
-      LoadMask.Message = 'Loading data...'
-      Align = alClient
-      Anchors = [akLeft, akTop, akRight, akBottom]
-      TabOrder = 1
-      Summary.Enabled = True
-      Summary.GrandTotal = True
-      Columns = <
-        item
-          FieldName = 'title'
-          Title.Caption = 'title'
-          Width = 246
+      Caption = 'DVD rentals 1'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 289
+      ExplicitHeight = 193
+      inline FrameDvdRentals1: TFrameDvdRentals
+        Left = 0
+        Top = 0
+        Width = 789
+        Height = 667
+        Align = alClient
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        TabOrder = 0
+        ExplicitLeft = 293
+        ExplicitTop = 307
+        inherited UniPanel1: TUniPanel
+          Width = 789
+          ExplicitLeft = -168
+          ExplicitTop = 25
+          ExplicitWidth = 998
         end
-        item
-          FieldName = 'release_year'
-          Title.Caption = 'release_year'
-          Width = 67
+        inherited UniPanel2: TUniPanel
+          Width = 789
+          Height = 642
+          ExplicitLeft = 0
+          ExplicitTop = 25
+          ExplicitWidth = 998
+          ExplicitHeight = 732
+          inherited UniDBGrid1: TUniDBGrid
+            Width = 463
+            Height = 640
+          end
+          inherited UniPanel3: TUniPanel
+            Left = 464
+            Height = 640
+            ExplicitLeft = 673
+          end
         end
-        item
-          FieldName = 'rental_duration'
-          Title.Caption = 'rental_duration'
-          Width = 78
+        inherited UniQuery2: TUniQuery
+          inherited UniQuery2Name: TStringField
+            OnGetText = nil
+          end
         end
-        item
-          FieldName = 'rental_rate'
-          Title.Caption = 'rental_rate'
-          Width = 64
-        end
-        item
-          FieldName = 'length'
-          Title.Caption = 'length'
-          Width = 64
-        end
-        item
-          FieldName = 'rating'
-          Title.Caption = 'rating'
-          Width = 64
-        end
-        item
-          FieldName = 'special_features'
-          Title.Caption = 'special_features'
-          Width = 83
-        end>
+      end
     end
-    object UniPanel3: TUniPanel
-      Left = 472
-      Top = 1
-      Width = 324
-      Height = 662
+    object UniTabSheet2: TUniTabSheet
       Hint = ''
-      Align = alRight
-      Anchors = [akTop, akRight, akBottom]
-      TabOrder = 2
-      Caption = 'UniPanel3'
-      object UniDBMemo1: TUniDBMemo
-        Left = 1
-        Top = 1
-        Width = 322
-        Height = 112
-        Hint = ''
-        DataField = 'description'
-        DataSource = UniMainModule.UniDataSource1
-        Align = alTop
-        Anchors = [akLeft, akTop, akRight]
-        TabOrder = 1
-      end
-      object UniDBGrid2: TUniDBGrid
-        Left = 1
-        Top = 238
-        Width = 322
-        Height = 223
-        Hint = ''
-        DataSource = UniMainModule.UniDataSource2
-        Options = [dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgAutoRefreshRow]
-        ReadOnly = True
-        WebOptions.Paged = False
-        LoadMask.Message = 'Loading data...'
-        Align = alTop
-        Anchors = [akLeft, akTop, akRight]
-        TabOrder = 2
-        Columns = <
-          item
-            FieldName = 'Name'
-            Title.Caption = 'Name'
-            Width = 274
-          end>
-      end
-      object UniDBMemo2: TUniDBMemo
-        Left = 1
-        Top = 113
-        Width = 322
-        Height = 112
-        Hint = ''
-        DataField = 'rating'
-        DataSource = UniMainModule.UniDataSource1
-        Align = alTop
-        Anchors = [akLeft, akTop, akRight]
-        TabOrder = 3
-      end
-      object UniLabel1: TUniLabel
-        Left = 1
-        Top = 225
-        Width = 79
-        Height = 13
-        Hint = ''
-        Caption = 'Featuring actors'
-        Align = alTop
-        Anchors = [akLeft, akTop, akRight]
-        TabOrder = 4
-      end
+      Caption = 'DVD Rentals 2'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 797
+      ExplicitHeight = 695
     end
   end
 end
