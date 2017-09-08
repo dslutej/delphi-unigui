@@ -1,22 +1,23 @@
 object FrameDvdRentals: TFrameDvdRentals
   Left = 0
   Top = 0
-  Width = 998
-  Height = 757
+  Width = 679
+  Height = 723
   OnCreate = UniFrameCreate
+  Align = alClient
+  Anchors = [akLeft, akTop, akRight, akBottom]
   TabOrder = 0
   object UniPanel1: TUniPanel
     Left = 0
     Top = 0
-    Width = 998
+    Width = 679
     Height = 25
     Hint = ''
     Align = alTop
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
     Caption = ''
-    ExplicitTop = 8
-    ExplicitWidth = 281
+    ExplicitWidth = 998
     object edtFilter: TUniEdit
       AlignWithMargins = True
       Left = 4
@@ -39,22 +40,20 @@ object FrameDvdRentals: TFrameDvdRentals
   object UniPanel2: TUniPanel
     Left = 0
     Top = 25
-    Width = 998
-    Height = 732
+    Width = 679
+    Height = 698
     Hint = ''
     Align = alClient
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 1
     Caption = 'UniPanel2'
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 789
-    ExplicitHeight = 667
+    ExplicitWidth = 998
+    ExplicitHeight = 732
     object UniDBGrid1: TUniDBGrid
       Left = 1
       Top = 1
-      Width = 672
-      Height = 730
+      Width = 353
+      Height = 696
       Hint = ''
       DataSource = UniDataSource1
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgAutoRefreshRow]
@@ -104,17 +103,17 @@ object FrameDvdRentals: TFrameDvdRentals
         end>
     end
     object UniPanel3: TUniPanel
-      Left = 673
+      Left = 354
       Top = 1
       Width = 324
-      Height = 730
+      Height = 696
       Hint = ''
       Align = alRight
       Anchors = [akTop, akRight, akBottom]
       TabOrder = 2
       Caption = 'UniPanel3'
-      ExplicitLeft = 679
-      ExplicitTop = 6
+      ExplicitLeft = 673
+      ExplicitHeight = 730
       object UniDBMemo1: TUniDBMemo
         Left = 1
         Top = 1
@@ -143,9 +142,9 @@ object FrameDvdRentals: TFrameDvdRentals
         TabOrder = 2
         Columns = <
           item
-            FieldName = 'first_name'
-            Title.Caption = 'first_name'
-            Width = 274
+            FieldName = 'Name'
+            Title.Caption = 'Name'
+            Width = 124
           end>
       end
       object UniDBMemo2: TUniDBMemo
@@ -175,8 +174,8 @@ object FrameDvdRentals: TFrameDvdRentals
   end
   object UniDataSource1: TUniDataSource
     DataSet = UniQuery1
-    Left = 168
-    Top = 56
+    Left = 120
+    Top = 120
   end
   object UniQuery1: TUniQuery
     Connection = UniMainModule.UniConnection1
@@ -184,9 +183,8 @@ object FrameDvdRentals: TFrameDvdRentals
       'select * from film '
       'where lower(title) like lower(:title_search)'
       'order by title;')
-    Active = True
-    Left = 64
-    Top = 64
+    Left = 40
+    Top = 120
     ParamData = <
       item
         DataType = ftString
@@ -197,8 +195,8 @@ object FrameDvdRentals: TFrameDvdRentals
   end
   object UniDataSource2: TUniDataSource
     DataSet = UniQuery2
-    Left = 176
-    Top = 136
+    Left = 120
+    Top = 176
   end
   object UniQuery2: TUniQuery
     Connection = UniMainModule.UniConnection1
@@ -212,9 +210,8 @@ object FrameDvdRentals: TFrameDvdRentals
     MasterSource = UniDataSource1
     MasterFields = 'film_id'
     DetailFields = 'film_id'
-    Active = True
-    Left = 64
-    Top = 128
+    Left = 40
+    Top = 176
     ParamData = <
       item
         DataType = ftInteger

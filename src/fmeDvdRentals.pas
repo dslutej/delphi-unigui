@@ -60,8 +60,10 @@ procedure TFrameDvdRentals.ExecuteFilmQuery(const filter: string);
 begin
   UniDBGrid1.BeginUpdate;
   UniQuery1.Close;
+  UniQuery2.Close;
   UniQuery1.ParamByName('title_search').AsString := '%' + filter + '%';
   UniQuery1.Open;
+  UniQuery2.Open;
   UniDBGrid1.EndUpdate;
 end;
 
