@@ -1,29 +1,33 @@
 object FrameDvdRentals: TFrameDvdRentals
   Left = 0
   Top = 0
-  Width = 679
-  Height = 723
+  Width = 748
+  Height = 600
   OnCreate = UniFrameCreate
+  ParentAlignmentControl = False
   Align = alClient
   Anchors = [akLeft, akTop, akRight, akBottom]
   TabOrder = 0
+  ExplicitWidth = 451
+  ExplicitHeight = 305
   object UniPanel1: TUniPanel
     Left = 0
     Top = 0
-    Width = 679
+    Width = 748
     Height = 25
     Hint = ''
     Align = alTop
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
+    BorderStyle = ubsNone
     Caption = ''
-    ExplicitWidth = 998
+    ExplicitWidth = 451
     object edtFilter: TUniEdit
       AlignWithMargins = True
-      Left = 4
-      Top = 4
+      Left = 3
+      Top = 3
       Width = 230
-      Height = 17
+      Height = 19
       Hint = ''
       Text = ''
       Align = alLeft
@@ -36,29 +40,42 @@ object FrameDvdRentals: TFrameDvdRentals
       FieldLabel = 'Filter'
       OnKeyPress = edtFilterKeyPress
     end
+    object UniButton1: TUniButton
+      Left = 673
+      Top = 0
+      Width = 75
+      Height = 25
+      Hint = ''
+      Caption = 'UniButton1'
+      Anchors = [akTop, akRight, akBottom]
+      Align = alRight
+      TabOrder = 2
+      OnClick = UniButton1Click
+      ExplicitLeft = 376
+    end
   end
   object UniPanel2: TUniPanel
     Left = 0
     Top = 25
-    Width = 679
-    Height = 698
+    Width = 748
+    Height = 575
     Hint = ''
     Align = alClient
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 1
+    BorderStyle = ubsNone
     Caption = 'UniPanel2'
-    ExplicitWidth = 998
-    ExplicitHeight = 732
+    ExplicitWidth = 451
+    ExplicitHeight = 280
     object UniDBGrid1: TUniDBGrid
-      Left = 1
-      Top = 1
-      Width = 353
-      Height = 696
+      Left = 0
+      Top = 0
+      Width = 424
+      Height = 575
       Hint = ''
       DataSource = UniDataSource1
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgAutoRefreshRow]
-      WebOptions.Paged = False
-      WebOptions.FetchAll = True
+      WebOptions.CustomizableCells = False
       LoadMask.Message = 'Loading data...'
       Align = alClient
       Anchors = [akLeft, akTop, akRight, akBottom]
@@ -103,17 +120,17 @@ object FrameDvdRentals: TFrameDvdRentals
         end>
     end
     object UniPanel3: TUniPanel
-      Left = 354
-      Top = 1
+      Left = 424
+      Top = 0
       Width = 324
-      Height = 696
+      Height = 575
       Hint = ''
       Align = alRight
       Anchors = [akTop, akRight, akBottom]
       TabOrder = 2
       Caption = 'UniPanel3'
-      ExplicitLeft = 673
-      ExplicitHeight = 730
+      ExplicitLeft = 127
+      ExplicitHeight = 280
       object UniDBMemo1: TUniDBMemo
         Left = 1
         Top = 1

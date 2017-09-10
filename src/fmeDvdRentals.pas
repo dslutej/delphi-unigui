@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIFrame, uniLabel, uniMemo, uniDBMemo, uniBasicGrid,
-  uniDBGrid, uniEdit, uniGUIBaseClasses, uniPanel, Data.DB, MemDS, DBAccess, Uni;
+  uniDBGrid, uniEdit, uniGUIBaseClasses, uniPanel, Data.DB, MemDS, DBAccess, Uni,
+  uniButton;
 
 type
   TFrameDvdRentals = class(TUniFrame)
@@ -26,10 +27,12 @@ type
     UniQuery2first_name: TStringField;
     UniQuery2last_name: TStringField;
     UniQuery2Name: TStringField;
+    UniButton1: TUniButton;
     procedure edtFilterKeyPress(Sender: TObject; var Key: Char);
     procedure UniFrameCreate(Sender: TObject);
     procedure UniQuery2NameGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
+    procedure UniButton1Click(Sender: TObject);
   private
     procedure ExecuteFilmQuery(const filter: string);
   public
@@ -65,6 +68,11 @@ begin
   UniQuery1.Open;
   UniQuery2.Open;
   UniDBGrid1.EndUpdate;
+end;
+
+procedure TFrameDvdRentals.UniButton1Click(Sender: TObject);
+begin
+  UniDBGrid1.Visible := not UniDBGrid1.Visible;
 end;
 
 procedure TFrameDvdRentals.UniFrameCreate(Sender: TObject);
