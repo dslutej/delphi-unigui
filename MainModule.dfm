@@ -1,6 +1,7 @@
 object UniMainModule: TUniMainModule
   OldCreateOrder = False
   Theme = 'neptune'
+  DocumentKeyOptions = [dkDisableBackSpace, dkDisableESC, dkDisableF5]
   MonitoredKeys.Keys = <>
   Height = 336
   Width = 521

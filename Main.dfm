@@ -6,6 +6,13 @@ object MainForm: TMainForm
   Caption = 'MainForm'
   BorderStyle = bsNone
   OldCreateOrder = False
+  Script.Strings = (
+    'window.onbeforeunload = function() '
+    '{'
+    
+      '  return "You will be automatically logged out if you proceed wi' +
+      'th this action.";'
+    '};')
   MonitoredKeys.Keys = <>
   OnCreate = UniFormCreate
   PixelsPerInch = 96
@@ -26,23 +33,17 @@ object MainForm: TMainForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 0
     OnChange = UniPageControl1Change
-    ExplicitWidth = 812
-    ExplicitHeight = 553
     object UniTabSheet1: TUniTabSheet
       Hint = ''
       AlignmentControl = uniAlignmentClient
       ParentAlignmentControl = False
       Caption = 'DVD rentals'
-      ExplicitWidth = 804
-      ExplicitHeight = 525
     end
     object UniTabSheet2: TUniTabSheet
       Hint = ''
       AlignmentControl = uniAlignmentClient
       ParentAlignmentControl = False
       Caption = 'Something Else'
-      ExplicitWidth = 804
-      ExplicitHeight = 525
       object UniToolBar1: TUniToolBar
         Left = 0
         Top = 0
@@ -57,7 +58,6 @@ object MainForm: TMainForm
         TabOrder = 0
         ParentColor = False
         Color = clBtnFace
-        ExplicitWidth = 804
         object UniToolButton1: TUniToolButton
           Left = 0
           Top = 0
@@ -112,7 +112,6 @@ object MainForm: TMainForm
     BorderStyle = ubsNone
     Caption = ''
     Color = clSilver
-    ExplicitHeight = 557
     object UniSpeedButton1: TUniSpeedButton
       AlignWithMargins = True
       Left = 3
@@ -284,7 +283,6 @@ object MainForm: TMainForm
     BorderStyle = ubsNone
     Caption = ''
     Color = clSilver
-    ExplicitWidth = 945
     object UniPanel1: TUniPanel
       Left = 0
       Top = 0
@@ -306,7 +304,7 @@ object MainForm: TMainForm
     Left = 464
     Top = 320
     Bitmap = {
-      494C0101010014002C0018001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101001400300018001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000001800000001002000000000000024
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
