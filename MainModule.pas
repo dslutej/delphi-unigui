@@ -8,8 +8,8 @@ uses
 
 type
   TUniMainModule = class(TUniGUIMainModule)
-    UniConnection1: TUniConnection;
     PostgreSQLUniProvider1: TPostgreSQLUniProvider;
+    connectionShakespeare: TUniConnection;
   private
     { Private declarations }
   public

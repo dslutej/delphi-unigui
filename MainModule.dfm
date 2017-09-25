@@ -5,20 +5,19 @@ object UniMainModule: TUniMainModule
   MonitoredKeys.Keys = <>
   Height = 336
   Width = 521
-  object UniConnection1: TUniConnection
+  object PostgreSQLUniProvider1: TPostgreSQLUniProvider
+    Left = 80
+    Top = 176
+  end
+  object connectionShakespeare: TUniConnection
     ProviderName = 'PostgreSQL'
     Port = 5432
-    Database = 'dvdrentals'
-    Pooling = True
-    Username = 'postgres'
+    Database = 'shakespeare'
+    Username = 'demo'
     Server = 'localhost'
     Connected = True
-    Left = 392
-    Top = 48
-    EncryptedPassword = '8FFF90FF8CFF8BFF98FF8DFF9AFF8CFF'
-  end
-  object PostgreSQLUniProvider1: TPostgreSQLUniProvider
-    Left = 264
-    Top = 8
+    Left = 56
+    Top = 88
+    EncryptedPassword = '9BFF9AFF92FF90FF'
   end
 end
