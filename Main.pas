@@ -3,6 +3,7 @@ unit Main;
 interface
 
 uses
+  System.SyncObjs,
   fmeShakeSpeare,
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
@@ -10,7 +11,8 @@ uses
   uniDBGrid, uniButton, uniSyntaxEditorBase, uniSyntaxEditorEx, uniSplitter,
   uniEdit, uniPanel, uniScreenMask, uniMemo, uniDBMemo, uniLabel, uniPageControl,
   uniGUIFrame, uniToolBar, uniBitBtn, uniMenuButton, uniTrackBar,
-  uniImageList, uniSpeedButton, Vcl.Imaging.pngimage, uniImage;
+  uniImageList, uniSpeedButton, Vcl.Imaging.pngimage, uniImage, uniMultiItem,
+  uniListBox, uniTimer;
 
 type
   TMainForm = class(TUniForm)
@@ -19,7 +21,11 @@ type
     pnlTop: TUniPanel;
     UniPanel1: TUniPanel;
     UniImageList1: TUniImageList;
+    UniTimer1: TUniTimer;
+    UniPanel2: TUniPanel;
+    UniListBox1: TUniListBox;
     procedure UniFormCreate(Sender: TObject);
+    procedure UniTimer1Timer(Sender: TObject);
   private
     FShakeSpeares: TArray<TFrameShakespeare>;
   public
@@ -45,7 +51,7 @@ var
   i: Integer;
 begin
 
-  for i := 1 to 5 do
+  for i := 1 to 15 do
   begin
     newPage := TUniTabSheet.Create(UniPageControl1);
 
@@ -60,6 +66,26 @@ begin
       Align   := alClient;
     end;
   end;
+
+end;
+
+procedure TMainForm.UniTimer1Timer(Sender: TObject);
+var
+  str: string;
+begin
+  UniListBox1.BeginUpdate;
+  UniSession.AddJS('Ext.suspendLayouts()');
+  while UniMainModule.MsgQueue.PopItem(str)=wrSignaled do
+  begin
+    UniListBox1.Items.Insert(0, str);
+  end;
+  while UniListBox1.Items.Count>32 do
+  begin
+    UniListBox1.Items.Delete(UniListBox1.Items.Count-1);
+  end;
+  UniSession.AddJS('Ext.resumeLayouts(true)');
+  UniListBox1.EndUpdate;
+
 
 end;
 

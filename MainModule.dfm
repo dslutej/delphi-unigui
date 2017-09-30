@@ -1,5 +1,7 @@
 object UniMainModule: TUniMainModule
   OldCreateOrder = False
+  OnCreate = UniGUIMainModuleCreate
+  OnDestroy = UniGUIMainModuleDestroy
   Theme = 'neptune'
   DocumentKeyOptions = [dkDisableBackSpace, dkDisableESC, dkDisableF5]
   MonitoredKeys.Keys = <>
@@ -13,10 +15,10 @@ object UniMainModule: TUniMainModule
     ProviderName = 'PostgreSQL'
     Port = 5432
     Database = 'shakespeare'
+    Pooling = True
     Username = 'demo'
     Server = 'localhost'
-    Connected = True
-    Left = 56
+    Left = 72
     Top = 88
     EncryptedPassword = '9BFF9AFF92FF90FF'
   end

@@ -17,34 +17,6 @@ object MainForm: TMainForm
   OnCreate = UniFormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object UniPageControl1: TUniPageControl
-    AlignWithMargins = True
-    Left = 131
-    Top = 75
-    Width = 828
-    Height = 592
-    Hint = ''
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
-    Align = alClient
-    Anchors = [akLeft, akTop, akRight, akBottom]
-    TabOrder = 0
-  end
-  object pnlLeft: TUniPanel
-    Left = 0
-    Top = 73
-    Width = 129
-    Height = 596
-    Hint = ''
-    Align = alLeft
-    Anchors = [akLeft, akTop, akBottom]
-    TabOrder = 1
-    BorderStyle = ubsNone
-    Caption = ''
-    Color = clSilver
-  end
   object pnlTop: TUniPanel
     Left = 0
     Top = 0
@@ -53,7 +25,7 @@ object MainForm: TMainForm
     Hint = ''
     Align = alTop
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 2
+    TabOrder = 0
     BorderStyle = ubsNone
     Caption = ''
     Color = clSilver
@@ -71,6 +43,64 @@ object MainForm: TMainForm
       Color = clWhite
     end
   end
+  object UniPanel2: TUniPanel
+    Left = 129
+    Top = 73
+    Width = 832
+    Height = 596
+    Hint = ''
+    Align = alClient
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    TabOrder = 1
+    Caption = 'UniPanel2'
+    ExplicitLeft = 192
+    ExplicitTop = 160
+    ExplicitWidth = 256
+    ExplicitHeight = 128
+    object UniPageControl1: TUniPageControl
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 635
+      Height = 590
+      Hint = ''
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Align = alClient
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      TabOrder = 1
+      ExplicitLeft = 2
+      ExplicitTop = 4
+    end
+    object UniListBox1: TUniListBox
+      Left = 640
+      Top = 1
+      Width = 191
+      Height = 594
+      Hint = ''
+      Align = alRight
+      Anchors = [akTop, akRight, akBottom]
+      TabOrder = 2
+    end
+  end
+  object pnlLeft: TUniPanel
+    Left = 0
+    Top = 73
+    Width = 129
+    Height = 596
+    Hint = ''
+    Align = alLeft
+    Anchors = [akLeft, akTop, akBottom]
+    TabOrder = 2
+    BorderStyle = ubsNone
+    Caption = ''
+    Color = clSilver
+    ExplicitLeft = 1
+    ExplicitTop = 1
+    ExplicitHeight = 594
+  end
   object UniImageList1: TUniImageList
     Width = 24
     Height = 24
@@ -78,7 +108,7 @@ object MainForm: TMainForm
     Left = 464
     Top = 320
     Bitmap = {
-      494C010101001400380018001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101010014003C0018001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000001800000001002000000000000024
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
@@ -381,5 +411,16 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
+  end
+  object UniTimer1: TUniTimer
+    Interval = 2222
+    ClientEvent.Strings = (
+      'function(sender)'
+      '{'
+      ' '
+      '}')
+    OnTimer = UniTimer1Timer
+    Left = 224
+    Top = 128
   end
 end
