@@ -53,15 +53,11 @@ object MainForm: TMainForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 1
     Caption = 'UniPanel2'
-    ExplicitLeft = 192
-    ExplicitTop = 160
-    ExplicitWidth = 256
-    ExplicitHeight = 128
     object UniPageControl1: TUniPageControl
       AlignWithMargins = True
       Left = 3
       Top = 3
-      Width = 635
+      Width = 570
       Height = 590
       Hint = ''
       Margins.Left = 2
@@ -72,17 +68,20 @@ object MainForm: TMainForm
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 1
       ExplicitLeft = 2
-      ExplicitTop = 4
+      ExplicitTop = 2
     end
     object UniListBox1: TUniListBox
-      Left = 640
+      Left = 575
       Top = 1
-      Width = 191
+      Width = 256
       Height = 594
       Hint = ''
       Align = alRight
       Anchors = [akTop, akRight, akBottom]
       TabOrder = 2
+      ParentFont = False
+      Font.Name = 'Courier New'
+      ExplicitLeft = 640
     end
   end
   object pnlLeft: TUniPanel
@@ -97,9 +96,6 @@ object MainForm: TMainForm
     BorderStyle = ubsNone
     Caption = ''
     Color = clSilver
-    ExplicitLeft = 1
-    ExplicitTop = 1
-    ExplicitHeight = 594
   end
   object UniImageList1: TUniImageList
     Width = 24
@@ -108,7 +104,7 @@ object MainForm: TMainForm
     Left = 464
     Top = 320
     Bitmap = {
-      494C0101010014003C0018001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101001400400018001800FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000001800000001002000000000000024
       000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF

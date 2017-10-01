@@ -3,21 +3,23 @@ unit ServerModule;
 interface
 
 uses
+  IdThreadSafe,
   MainModule,
+  System.SyncObjs,
   Classes, SysUtils, uniGUIServer, uniGUIMainModule, uniGUIApplication, uIdCustomHTTPServer,
   uniGUITypes, UniProvider, PostgreSQLUniProvider, Data.DB, DBAccess, Uni, MemDS,
   Vcl.ExtCtrls, uniGUIBaseClasses, uniGUIClasses, uniTimer;
 
 type
   TUniServerModule = class(TUniGUIServerModule)
-    Timer1: TTimer;
-    procedure UniTimer1Timer(Sender: TObject);
+    procedure UniGUIServerModuleCreate(Sender: TObject);
+    procedure UniGUIServerModuleDestroy(Sender: TObject);
   private
-    { Private declarations }
+    FMsgSenderThreads: TArray<TThread>;
+    FTerminator: TIdThreadSafeBoolean;
   protected
     procedure FirstInit; override;
   public
-    { Public declarations }
   end;
 
 function UniServerModule: TUniServerModule;
@@ -39,26 +41,68 @@ begin
   InitServerModule(Self);
 end;
 
-procedure TUniServerModule.UniTimer1Timer(Sender: TObject);
+procedure TUniServerModule.UniGUIServerModuleCreate(Sender: TObject);
 var
-  i: Integer;
-  session: TUniGUISession;
-  mainModule: TUniMainModule;
+  thread: TThread;
+  t: Integer;
 begin
-  SessionManager.Sessions.Lock;
 
-  for i := 0 to SessionManager.Sessions.SessionList.Count-1 do
-  begin
-    session := TUniGuiSession(SessionManager.Sessions.SessionList[i]);
+  FTerminator := TIdThreadSafeBoolean.Create;
+  FTerminator.Value := False;
 
-    mainModule := TUniMainModule(session.UniMainModule);
-    if Assigned(mainModule) then
+  for t := 0 to 9 do
+  FMsgSenderThreads := FMsgSenderThreads + [TThread.CreateAnonymousThread(
+    procedure
+    var
+      i: Integer;
+      session: TUniGUISession;
+      mainModule: TUniMainModule;
     begin
-      mainModule.MsgQueue.PushItem(DateTimeToStr(Now));
-    end;
+      while not FTerminator.Value do
+      begin
+
+        SessionManager.Sessions.Lock;
+
+        for i := 0 to SessionManager.Sessions.SessionList.Count-1 do
+        begin
+          session := TUniGuiSession(SessionManager.Sessions.SessionList[i]);
+
+          mainModule := TUniMainModule(session.UniMainModule);
+          if Assigned(mainModule) then
+          begin
+            mainModule.MsgQueue.PushItem(TThread.CurrentThread.Handle.ToHexString  + ' - ' +  DateTimeToStr(Now));
+          end;
+        end;
+
+        SessionManager.Sessions.Unlock;
+
+        Sleep(1000);
+
+      end;
+    end
+  )];
+
+  for thread in FMsgSenderThreads do
+  begin
+   thread.FreeOnTerminate := False;
+   thread.Start;
   end;
 
-  SessionManager.Sessions.Unlock;
+end;
+
+procedure TUniServerModule.UniGUIServerModuleDestroy(Sender: TObject);
+var
+  thread: TThread;
+begin
+
+  FTerminator.Value := True;
+  for thread in FMsgSenderThreads do
+  begin
+    thread.WaitFor;
+    thread.Free;
+  end;
+
+  FTerminator.Free;
 
 end;
 

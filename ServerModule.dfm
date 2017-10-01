@@ -1,5 +1,7 @@
 object UniServerModule: TUniServerModule
   OldCreateOrder = False
+  OnCreate = UniGUIServerModuleCreate
+  OnDestroy = UniGUIServerModuleDestroy
   TempFolder = 'temp\'
   Title = 'uniGUI playground'
   Favicon.Data = {
@@ -45454,9 +45456,4 @@ object UniServerModule: TUniServerModule
   ConnectionFailureRecovery.RetryMessage = 'Retrying...'
   Height = 411
   Width = 546
-  object Timer1: TTimer
-    OnTimer = UniTimer1Timer
-    Left = 256
-    Top = 192
-  end
 end
